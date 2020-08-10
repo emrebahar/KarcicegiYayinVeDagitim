@@ -1,0 +1,123 @@
+﻿@model KarcicegiYayinVeDagitim.Models.OrderDetailsModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar ================================================== -->
+            <div id="sidebar" class="span3">
+                @Html.Action("Summary", "Cart")
+                <ul id="sideManu" class="nav nav-tabs nav-stacked">
+
+                    @Html.Action("CategoryList", "Category");
+
+                </ul>
+                <br />
+                @Html.Action("FeaturedProductList", "Home")
+            </div>
+            <!-- Sidebar end=============================================== -->
+            <div class="span9">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+                    <li class="active">Products Compairsition</li>
+                </ul>
+                <h3>Sipariş Detay Sayfası </h3>
+                <hr class="soft" />
+
+                <table id="compairTbl" class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>Sipariş Durumu</td>>
+                            <td>
+                                @if (Model.OrderState == KarcicegiYayinVeDagitim.Entity.EnumOrderState.Bekleniyor)
+                                {
+                                    <a class="btn btn-danger">Sipariş Bekleniyor</a>
+                                }
+
+                                else if (Model.OrderState == KarcicegiYayinVeDagitim.Entity.EnumOrderState.Tamamlandı)
+                                {
+                                    <a class="btn btn-success">Sipariş Tamamlandı</a>
+                                }
+                                else if (Model.OrderState == KarcicegiYayinVeDagitim.Entity.EnumOrderState.Paketlendi)
+                                {
+                                    <a class="btn btn-info">Sipariş Paketlendi</a>
+                                }
+                                else if (Model.OrderState == KarcicegiYayinVeDagitim.Entity.EnumOrderState.Kargolandı)
+                                {
+                                    <a class="btn btn-primary">Sipariş Kargoya Verildi</a>
+                                }
+
+                            </td>>
+                        </tr>
+                        <tr>
+                            <td>Sipariş Id</td>>
+                            <td>@Model.OrderId</td>>
+                        </tr>
+                        <tr>
+                            <td>Sipariş Numarası</td>>
+                            <td>@Model.OrderNumber</td>>
+                        </tr>
+                        <tr>
+                            <td>Toplam Tutar (₺)</td>>
+                            <td>@Model.Total</td>>
+                        </tr>
+                        <tr>
+                            <td>Tarih</td>>
+                            <td>@Model.OrderDate</td>>
+                        </tr>
+                        <tr>
+                            <td>Adres</td>>
+                            <td>
+                                @Model.AdresBasligi
+                                <br />
+                                @Model.Adres
+                                <br />
+                                @Model.Mahalle - @Model.Semt - @Model.Sehir - @Model.PosteKodu
+                            </td>>
+                        </tr>
+                        <tr>
+                            <td>Sipariş Id</td>>
+                            <td>@Model.OrderId</td>>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+                <table id="compairTbl" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Resim</th>
+                            <th>Ürün Adı</th>
+                            <th>Toplam Fiyat (₺)</th>
+                            <th>Adet</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.OrderLines)
+                        {
+                            <tr>
+                                <td><img src="~/Content/image//@item.Image" height="75" width="50" /></td>>
+                                <td>@item.ProductName</td>>
+                                <td>@item.Price ₺</td>>
+                                <td>@item.Quantity</td>>
+                                <td>
+                                    <a href="/Home/ProductDetails/@item.ProductId" class="btn btn-primary" target="_blank">Ürün Detay</a>
+                                </td>>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

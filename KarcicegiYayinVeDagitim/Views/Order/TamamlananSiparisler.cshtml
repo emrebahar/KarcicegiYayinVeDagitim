@@ -1,0 +1,63 @@
+﻿@model IEnumerable<KarcicegiYayinVeDagitim.Entity.Order>
+@{
+    ViewBag.Title = "TamamlananSiparisler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <!--/.box-header-->
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Sipariş Numarası</th>
+                                <th>Sipariş Tarihi</th>
+                                <th>Sipariş Durumu</th>
+                                <th>Toplam Tutar (₺)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.Id
+                                    </td>
+                                    <td>
+                                        @item.OrderNumber
+                                    </td>
+                                    <td>
+                                        @item.OrderDate
+                                    </td>
+                                    <td>
+                                        @item.OrderState
+                                    </td>
+                                    <td>
+                                        @item.Total
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Detay", "Details", new { id = @item.Id }, new { @class = "btn btn-primary" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Sipariş Numarası</th>
+                                <th>Sipariş Tarihi</th>
+                                <th>Sipariş Durumu</th>
+                                <th>Toplam Tutar (₺)</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div>
+

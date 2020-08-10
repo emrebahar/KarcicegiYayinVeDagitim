@@ -1,0 +1,99 @@
+﻿@model KarcicegiYayinVeDagitim.Entity.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sil</h2>
+
+<h3>Bu Ürünü Silmek İstediğinizden Emin misiniz?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Adı :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Açıklama :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            Fiyat :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            Adet :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stok)
+        </dd>
+
+        <dt>
+            Resim :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+            <img src="~/Content/image/@Model.Image" height="75" width="50" />
+        </dd>
+
+        <dt>
+            Slider :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slider)
+        </dd>
+
+        <dt>
+            Ana Sayfa :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsHome)
+        </dd>
+
+        <dt>
+            Onaylı :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsApproved)
+        </dd>
+
+        <dt>
+            Populer :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Isfeatured)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Sil" class="btn btn-danger" />
+                @Html.ActionLink("Ürün Listesi", "Index", null, new { @class = "btn btn-warning" })
+            </div>
+        </div>
+    }
+</div>

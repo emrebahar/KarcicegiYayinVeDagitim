@@ -1,0 +1,87 @@
+﻿@model KarcicegiYayinVeDagitim.Models.Cart
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar ================================================== -->
+            <div id="sidebar" class="span3">
+                @Html.Action("Summary","Cart")
+                <ul id="sideManu" class="nav nav-tabs nav-stacked">
+
+                    @Html.Action("CategoryList", "Category");
+
+                </ul>
+                <br />
+                @Html.Action("FeaturedProductList", "Home")
+            </div>
+            <!-- Sidebar end=============================================== -->
+            <div class="span9">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+                    <li class="active"> SHOPPING CART</li>
+                </ul>
+                <h3>  Alışveriş Sepeti </h3>
+                <hr class="soft" />
+
+                @if (Model.Cartlines.Count > 0)
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Resim</th>
+                                <th>Adı</th>
+                                <th>Açıklama</th>
+                                <th>Adet</th>
+                                <th>Fiyat</th>
+                                <th>Toplam Fiyat</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Cartlines)
+                            {
+                                <tr>
+                                    <td> <img width="60" height="80" src="~/Content/image/@item.Product.Image" alt="" /></td>
+                                    <td>@item.Product.Name</td>
+                                    <td>@item.Product.Description</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.Product.Price (₺)</td>
+                                    <td>@((item.Product.Price*item.Quantity).ToString("c"))</td>
+                                    <td>
+                                        @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                                        {
+                                            @Html.Hidden("Id", item.Product.Id)
+                                            <button type="submit" class="btn btn-danger"> Sil </button>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <td class="label label-important" style="display:block"> <strong>Toplam Fiyat = @Model.Total().ToString("c")</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="/Home/Product" class="btn btn-success"><i class="icon-arrow-left"></i> Alışverişe Devam Et </a>
+                    <a href="/Cart/Checkout" class="btn btn-success pull-right"> Alışverişi Tamamla <i class="icon-arrow-right"></i></a>
+                }
+                else
+                {
+                    <div class="alert alert-error">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>Uyarı !</strong> Sepetinizde ürün bulunmamaktadır..
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,68 @@
+﻿@using KarcicegiYayinVeDagitim.Entity
+@model Product
+@{
+    ViewBag.Title = "ProductDetails";
+}
+
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar ================================================== -->
+            <div id="sidebar" class="span3">
+                @Html.Action("Summary", "Cart")
+                <ul id="sideManu" class="nav nav-tabs nav-stacked">
+                    @Html.Action("CategoryList", "Category");
+                </ul>
+                <br>
+                @Html.Action("FeaturedProductList", "Home")
+            </div>
+            <!-- Sidebar end=============================================== -->
+            <div class="span9">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+                    <li><a href="products.html">Products</a> <span class="divider">/</span></li>
+                    <li class="active">product Details</li>
+                </ul>
+                <div class="row">
+                    <div id="gallery" class="span3">
+                        <a href="themes/images/products/large/f1.jpg" title="Fujifilm FinePix S2950 Digital Camera">
+                            <img src="~/Content/image/@Model.Image" style="width:100%" alt="Fujifilm FinePix S2950 Digital Camera">
+                        </a>
+                        <div id="differentview" class="moreOptopm carousel slide">
+
+                        </div>
+
+                    </div>
+                    <div class="span6">
+                        <h3>@Model.Name </h3>
+                        <small>@Model.Category.Description</small>
+                        <hr class="soft">
+                        <form class="form-horizontal qtyFrm">
+                            <div class="control-group">
+                                <label class="control-label"><span>@Model.Price (₺)</span></label>
+                                <div class="controls">
+                                    <input type="number" class="span1" placeholder="Qty.">
+                                </div>
+                            </div>
+                        </form>
+
+                        <hr class="soft">
+                        <h4>@Model.Stok</h4>
+                        <hr class="soft clr">
+                        <p>
+                            @Model.Description
+                        </p>
+                        @using (Html.BeginForm("AddToCart", "Cart"))
+                        {
+                            @Html.HiddenFor(i=>i.Id)
+                            <button type="submit" class="btn btn-large btn-primary pt-md-2"> Sepete ekle <i class=" icon-shopping-cart"></i></button>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,10 @@
+﻿@using KarcicegiYayinVeDagitim.Models
+@model IEnumerable<CategoryModel>
+
+<li><a href="/Home/Product">TÜM YAYINLAR</a></li>
+@foreach (var item in Model)
+{
+    <li><a href="/Home/ProductList/@item.Id">@item.Name.ToUpper() [@item.Count]</a></li>
+}
+
+

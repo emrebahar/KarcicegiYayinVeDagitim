@@ -1,0 +1,47 @@
+﻿@using KarcicegiYayinVeDagitim.Entity
+@model IEnumerable<Product>
+
+<div id="carouselBlk">
+    <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="container">
+                    <a href="#"><img style="width:100%" src="~/Content/image/752x397-1.jpg" alt="special offers" /></a>
+                    <div class="carousel-caption">
+                        <h4>Second Thumbnail label</h4>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+            </div>
+
+            @foreach (var item in Model)
+            {
+                <div class="item">
+                    <div class="container">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="/Home/ProductDetails/@item.Id">
+                                        <div align="left"><img src="~/Content/image/@item.Image" style="width:100%; height:480px; min-height:480px; min-width:400px;" /> </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/Home/ProductDetails/@item.Id">
+                                        <div align="right"><img src="~/Content/image/indirim.jpg" style="width:100%; height:480px; min-height:480px; min-width:585px;"/> </div>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="carousel-caption">
+                            <h4></h4>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+</div>

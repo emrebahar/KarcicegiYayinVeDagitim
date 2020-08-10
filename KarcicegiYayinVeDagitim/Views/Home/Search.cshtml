@@ -1,0 +1,61 @@
+﻿@using KarcicegiYayinVeDagitim.Entity
+@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar ================================================== -->
+            <div id="sidebar" class="span3">
+                <div class="well well-small"><a id="myCart" href="product_summary.html"><img src="/Kaynak/themes/images/ico-cart.png" alt="cart">3 Items in your cart  <span class="badge badge-warning pull-right">$155.00</span></a></div>
+                <ul id="sideManu" class="nav nav-tabs nav-stacked">
+                    @Html.Action("CategoryList", "Category");
+                </ul>
+                <br>
+                @Html.Action("FeaturedProductList", "Home")
+            </div>
+            <!-- Sidebar end=============================================== -->
+            <div class="span9">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+                    <li class="active">Products Name</li>
+                </ul>
+                <h3> Ürün isimleri </h3>
+
+
+                <br class="clr">
+                <div class="tab-content">
+                    <div class="tab-pane  active" id="blockView">
+                        <ul class="thumbnails">
+                            @foreach (var item in Model)
+                            {
+
+                                <li class="span3">
+                                    <div class="thumbnail" style="width:270px;height:310px">
+                                        <a href="/Home/ProductDetails/@item.Id"><img style="width:160px;height:200px;max-width:160px;max-height:250px" src="~/Content/image/@item.Image" alt="" /></a>
+                                        <div class="caption" style="width:260px;height:140px">
+                                            <h5><a href="/Home/ProductDetails/@item.Id">@item.Name</a></h5>
+                                            <p>
+                                                @item.Description
+                                            </p>
+
+                                            <h4 style="text-align:center"><a class="btn" href="/Home/ProductDetails/@item.Id">Görüntüle..<i class="icon-shopping-cart"></i></a> <a class="btn btn-primary">@item.Price (₺)</a></h4>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                        <hr class="soft">
+                    </div>
+                </div>
+                <br class="clr">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

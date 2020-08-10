@@ -1,0 +1,63 @@
+﻿@using KarcicegiYayinVeDagitim.Models
+@model IEnumerable<UserOrderModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar ================================================== -->
+            <div id="sidebar" class="span3">
+                @Html.Action("Summary", "Cart")
+                <ul id="sideManu" class="nav nav-tabs nav-stacked">
+
+                    @Html.Action("CategoryList", "Category");
+
+                </ul>
+                <br />
+                @Html.Action("FeaturedProductList", "Home")
+            </div>
+            <!-- Sidebar end=============================================== -->
+            <div class="span9">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+                    <li class="active">Products Compairsition</li>
+                </ul>
+                <h3>Sipariş Detay Sayfası </h3>
+                <hr class="soft" />
+
+                <table id="compairTbl" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sipariş Numarası</th>
+                            <th>Sipariş Tarihi</th>
+                            <th>Toplam Fiyat (₺)</th>
+                            <th>Sipariş Durumu</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.OrderNumber</td>>
+                                <td>@item.OrderDate.ToShortDateString()</td>>
+                                <td>@item.Total ₺</td>>
+                                <td>@item.OrderState</td>>
+                                <td>
+                                    @Html.ActionLink("Sipariş detay","Details", new {id=@item.Id },new {@class= "btn btn-primary" })
+                                </td>>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

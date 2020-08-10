@@ -1,0 +1,14 @@
+﻿@using KarcicegiYayinVeDagitim.Entity
+@model IEnumerable<Product>
+<h5>POPÜLER ÜRÜNLER</h5>
+@foreach (var item in Model)
+{
+    <div class="thumbnail" style="width:260px; height:210px;">
+        <img src="~/Content/image/@item.Image" alt="Bootshop panasonoc New camera" style="width:125px; height:90px;" />
+        <div class="caption">
+            <h5><a href="/Home/ProductDetails/@item.Id">@item.Name</a></h5>
+            <h4 style="text-align:center"><a class="btn" href="/Home/ProductDetails/@item.Id">Görüntüle <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">@item.Price (₺)</a></h4>
+        </div>
+    </div>
+    <br />
+}
