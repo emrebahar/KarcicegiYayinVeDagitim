@@ -20,6 +20,7 @@ namespace KarcicegiYayinVeDagitim.Controllers
                 Id = i.Id,
                 Name = i.Name,
                 Description = i.Description.Length > 25 ? i.Description.Substring(0, 20) + "..." : i.Description,
+                Class = i.Class,
                 Price = i.Price,
                 Stok = i.Stok,
                 Image = i.Image,
@@ -29,13 +30,13 @@ namespace KarcicegiYayinVeDagitim.Controllers
         }
         public PartialViewResult Slider()
         {
-            return PartialView(db.Products.Where(x => x.Slider && x.IsApproved).Take(3).ToList());
+            return PartialView(db.Products.Where(x => x.Slider && x.IsApproved).Take(5).ToList());
         }
         public PartialViewResult FeaturedProductList()
         {
             return PartialView(db.Products.Where(x => x.Isfeatured && x.IsApproved).Take(5).ToList());
         }
-        public ActionResult ProductList(int id)
+        public ActionResult ProductList(int id )
         {
             return View(db.Products.Where(i => i.CategoryId == id).ToList());
         }
@@ -59,6 +60,7 @@ namespace KarcicegiYayinVeDagitim.Controllers
                 Id = i.Id,
                 Name = i.Name,
                 Description = i.Description.Length > 25 ? i.Description.Substring(0, 20) + "..." : i.Description,
+                Class = i.Class,
                 Price = i.Price,
                 Stok = i.Stok,
                 Image = i.Image,

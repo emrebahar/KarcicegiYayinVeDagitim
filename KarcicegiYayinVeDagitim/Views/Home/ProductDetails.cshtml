@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "ProductDetails";
 }
-
+@Html.Action("CategoryListNavbar", "Category")
 <div id="mainBody">
     <div class="container">
         <div class="row">
@@ -11,10 +11,10 @@
             <div id="sidebar" class="span3">
                 @Html.Action("Summary", "Cart")
                 <ul id="sideManu" class="nav nav-tabs nav-stacked">
-                    @Html.Action("CategoryList", "Category");
+                    @Html.Action("CategoryList", "Category")
                 </ul>
                 <br>
-                @Html.Action("FeaturedProductList", "Home")
+
             </div>
             <!-- Sidebar end=============================================== -->
             <div class="span9">
@@ -34,8 +34,8 @@
 
                     </div>
                     <div class="span6">
-                        <h3>@Model.Name </h3>
-                        <small>@Model.Category.Description</small>
+                        <h3>@Model.Name.ToUpper() </h3>
+                        <small>@Model.Category.Description.ToUpper()</small>
                         <hr class="soft">
                         <form class="form-horizontal qtyFrm">
                             <div class="control-group">
@@ -47,14 +47,14 @@
                         </form>
 
                         <hr class="soft">
-                        <h4>@Model.Stok</h4>
+                        <h4>@Model.Class. Sınıf </h4>
                         <hr class="soft clr">
                         <p>
                             @Model.Description
                         </p>
                         @using (Html.BeginForm("AddToCart", "Cart"))
                         {
-                            @Html.HiddenFor(i=>i.Id)
+                            @Html.HiddenFor(i => i.Id)
                             <button type="submit" class="btn btn-large btn-primary pt-md-2"> Sepete ekle <i class=" icon-shopping-cart"></i></button>
                         }
 
@@ -62,6 +62,7 @@
 
                 </div>
             </div>
+            @Html.Action("FeaturedProductList", "Home")
         </div>
     </div>
 </div>

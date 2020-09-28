@@ -3,20 +3,20 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@Html.Action("CategoryListNavbar", "Category")
 <div id="mainBody">
     <div class="container">
         <div class="row">
             <!-- Sidebar ================================================== -->
             <div id="sidebar" class="span3">
-                @Html.Action("Summary","Cart")
+                @Html.Action("Summary", "Cart")
                 <ul id="sideManu" class="nav nav-tabs nav-stacked">
 
                     @Html.Action("CategoryList", "Category");
 
                 </ul>
                 <br />
-                @Html.Action("FeaturedProductList", "Home")
+
             </div>
             <!-- Sidebar end=============================================== -->
             <div class="span9">
@@ -81,6 +81,7 @@
                     </div>
                 }
             </div>
+            @Html.Action("FeaturedProductList", "Home")
         </div>
     </div>
 </div>

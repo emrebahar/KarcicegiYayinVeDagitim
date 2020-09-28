@@ -2,9 +2,58 @@
 @model IEnumerable<CategoryModel>
 
 <li><a href="/Home/Product">TÜM YAYINLAR</a></li>
-@foreach (var item in Model)
-{
-    <li><a href="/Home/ProductList/@item.Id">@item.Name.ToUpper() [@item.Count]</a></li>
-}
+
+<ul id="sideManu" class="nav nav-tabs nav-stacked">
+    @foreach (var item in Model)
+    {
+        <li class="subMenu">
+            <a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.Name.ToUpper()</font></font></a>
+            <ul style="display:none">
+
+                <li><a href="/Home/ProductList/@item.Id"><i class="icon-chevron-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TÜM KİTAPLAR</font></font></a></li>
+            </ul>
+            <ul style="display:none">
+
+                <li><a href="/Home/ProductList/@item.Id"><i class="icon-chevron-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1. Sınıf</font></font></a></li>
+            </ul>
+            <ul style="display:none">
+
+                <li><a href="/Home/ProductList/@item.Id"><i class="icon-chevron-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2. Sınıf</font></font></a></li>
+            </ul>
+            <ul style="display:none">
+
+                <li><a href="/Home/ProductList/@item.Id"><i class="icon-chevron-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3. Sınıf</font></font></a></li>
+            </ul>
+            <ul style="display:none">
+
+                <li><a href="/Home/ProductList/@item.Id"><i class="icon-chevron-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">4. Sınıf</font></font></a></li>
+            </ul><ul style="display:none">
+
+                <li><a href="/Home/ProductList/@item.Id"><i class="icon-chevron-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5. Sınıf</font></font></a></li>
+            </ul>
+            <ul style="display:none">
+
+                <li><a href="/Home/ProductList/@item.Id"><i class="icon-chevron-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">6. Sınıf</font></font></a></li>
+            </ul>
+            <ul style="display:none">
+
+                <li><a href="/Home/ProductList/@item.Id"><i class="icon-chevron-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">7. Sınıf</font></font></a></li>
+            </ul>
+            <ul style="display:none">
+
+                <li><a href="/Home/ProductList/@item.Id"><i class="icon-chevron-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">8. Sınıf</font></font></a></li>
+            </ul>
+        </li>
+    }
 
 
+</ul>
+
+@*@foreach (var item in Model)
+    {
+        <ul id="sideManu" class="nav nav-tabs nav-stacked">
+            <li class="submenu open">
+                <a href="/Home/ProductList/@item.Id">@item.Name.ToUpper() </a>
+            </li>
+        </ul>
+    }*@

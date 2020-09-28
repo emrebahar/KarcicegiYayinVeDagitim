@@ -4,7 +4,7 @@
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@Html.Action("CategoryListNavbar", "Category")
 <div id="mainBody">
     <div class="container">
         <div class="row">
@@ -17,7 +17,7 @@
 
                 </ul>
                 <br />
-                @Html.Action("FeaturedProductList", "Home")
+
             </div>
             <!-- Sidebar end=============================================== -->
             <div class="span9">
@@ -44,7 +44,7 @@
                                     <label class="control-label" for="inputUsername">Şifre</label>
                                     <div class="controls">
                                         @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" } )
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
@@ -60,6 +60,7 @@
                 </table>
 
             </div>
+            @Html.Action("FeaturedProductList", "Home")
         </div>
     </div>
 </div>

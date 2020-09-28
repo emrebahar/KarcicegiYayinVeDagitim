@@ -7,15 +7,15 @@
 
 <h2>Oluştur</h2>
 
-@using (Html.BeginForm("Create","Product",FormMethod.Post,new {enctype = "multipart/Form-data" }  ))
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/Form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Name,"Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Name, "Adı", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @style = "max-width:35%" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
@@ -27,6 +27,19 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @style = "max-width:35%" } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Class, "Sınıf", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.DropDownListFor(model => model.Class, new SelectList())*@
+                <select name="Class" id="class" style="width: 365.5px ; height:34px">
+                    @for (int i = 1; i < 9; i++)
+                    {
+                        <option value="@i">@i. Sınıf</option>
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.Class, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -50,7 +63,7 @@
             @Html.LabelFor(model => model.Image, "Resim", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @style = "max-width:35%" } })
-               <input type="file" name="File"/>
+                <input type="file" name="File" />
                 @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
             </div>
         </div>

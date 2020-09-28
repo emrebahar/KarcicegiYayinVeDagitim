@@ -4,91 +4,92 @@
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Html.Action("CategoryListNavbar", "Category")
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar ================================================== -->
+            <div id="sidebar" class="span3">
+                @Html.Action("Summary", "Cart")
+                <ul id="sideManu" class="nav nav-tabs nav-stacked">
 
-    <div id="mainBody">
-        <div class="container">
-            <div class="row">
-                <!-- Sidebar ================================================== -->
-                <div id="sidebar" class="span3">
-                    @Html.Action("Summary", "Cart")
-                    <ul id="sideManu" class="nav nav-tabs nav-stacked">
+                    @Html.Action("CategoryList", "Category");
 
-                        @Html.Action("CategoryList", "Category");
+                </ul>
+                <br />
 
-                    </ul>
-                    <br />
-                    @Html.Action("FeaturedProductList", "Home")
-                </div>
-                <!-- Sidebar end=============================================== -->
-                <div class="span9">
-                    <table class="table table-bordered">
-                        <tr><th> KAYIT OL </th></tr>
-                        <tr>
-                            <td>
-
-                                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
-                                {
-                                    @Html.AntiForgeryToken()
-
-
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputUsername">Adı</label>
-                                        <div class="controls">
-                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputUsername">Soyadı</label>
-                                        <div class="controls">
-                                            @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputUsername">Kullanıcı Adı</label>
-                                        <div class="controls">
-                                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputUsername">Email</label>
-                                        <div class="controls">
-                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputUsername">Şifre</label>
-                                        <div class="controls">
-                                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputUsername">Şifre Tekrar</label>
-                                        <div class="controls">
-                                            @Html.EditorFor(model => model.RePassword, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.RePassword, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <button type="submit" class="btn btn-success">Üye Ol</button>Ya da <a href="/Account/Login" class="btn btn-primary">Giriş Yap</a>
-                                        </div>
-                                    </div>
-
-                                }
-                            </td>
-                        </tr>
-                    </table>
-
-                </div>
             </div>
+            <!-- Sidebar end=============================================== -->
+            <div class="span9">
+                <table class="table table-bordered">
+                    <tr><th> KAYIT OL </th></tr>
+                    <tr>
+                        <td>
+
+                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUsername">Adı</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUsername">Soyadı</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUsername">Kullanıcı Adı</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUsername">Email</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUsername">Şifre</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUsername">Şifre Tekrar</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.RePassword, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.RePassword, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <button type="submit" class="btn btn-success">Üye Ol</button>Ya da <a href="/Account/Login" class="btn btn-primary">Giriş Yap</a>
+                                    </div>
+                                </div>
+
+                            }
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            @Html.Action("FeaturedProductList", "Home")
         </div>
     </div>
+</div>
 

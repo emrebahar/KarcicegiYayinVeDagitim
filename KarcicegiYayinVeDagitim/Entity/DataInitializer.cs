@@ -12,9 +12,9 @@ namespace KarcicegiYayinVeDagitim.Entity
         {
             var kategoriler = new List<Category>()
             {
-                new Category() {Name  = "ARI" , Description="Ari Yayinlari"},
-                new Category() {Name= "MODEL", Description="Model Yayinlari"},
-                new Category(){Name ="HIZ", Description="Hiz Yayinlari"}
+                new Category() {Name  = "ARI Yayınları" , Description="Ari Yayinlari"},
+                new Category() {Name= "MODEL yayınları", Description="Model Yayinlari"},
+                new Category(){Name ="HIZ yayınları", Description="Hiz Yayinlari"}
             };
             foreach (var item  in kategoriler)
             {
@@ -23,8 +23,8 @@ namespace KarcicegiYayinVeDagitim.Entity
             context.SaveChanges();
             var urunler = new List<Product>()
             {
-                new Product(){Name ="8. Sınıf deneme Matematik",Description="kitap",Price=30,Stok=50,IsHome=true,CategoryId=1,Image="var1.png",IsApproved=true,Isfeatured=false},
-                new Product(){Name ="8. Sınıf deneme",Description="kitap",Price=30,Stok=50,IsHome=true,CategoryId=1,Image="var2.png",IsApproved=true,Isfeatured=false},
+                new Product(){Name ="8. Sınıf deneme Matematik",Description="kitap",Class = 8,Price=30,Stok=50,IsHome=true,CategoryId=1,Image="var1.png",IsApproved=true,Isfeatured=true,Slider = true},
+                new Product(){Name ="8. Sınıf deneme",Description="kitap",Class = 8,Price=30,Stok=50,IsHome=true,CategoryId=1,Image="var2.png",IsApproved=true,Isfeatured=false},
                 new Product(){Name ="8. Sınıf deneme",Description="kitap",Price=30,Stok=50,IsHome=true,CategoryId=1,Image="model1.png",IsApproved=true,Isfeatured=false},
                 new Product(){Name ="8. Sınıf deneme",Description="kitap",Price=30,Stok=50,IsHome=false,CategoryId=1,Image="model2.png",IsApproved=true,Isfeatured=false}
             };

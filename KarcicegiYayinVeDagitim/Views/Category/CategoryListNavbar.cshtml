@@ -1,0 +1,75 @@
+﻿@using KarcicegiYayinVeDagitim.Models
+@model IEnumerable<CategoryModel>
+
+<section id="navbar">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="/Home/Index" style="color:red">KARÇİÇEĞİ YAYIN VE DAĞITIM</a>
+                <div class="nav-collapse collapse" style="height: 0px;">
+                    <ul class="nav">
+                        <li class="active"><a href="/Home/Product">TÜM KİTAPLAR</a></li>
+                        @foreach (var item in Model)
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.Name.ToUpper()<b class="caret"></b></a>
+                                @for (int i = 1; i < 100; i++)
+                                {
+                                    if (item.Id == i)
+                                    {
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/Home/ProductList/@item.Id">3.sınıf</a></li>
+                                            <li><a href="/Home/ProductList/@item.Id">4.sınıf</a></li>
+                                            <li><a href="/Home/ProductList/@item.Id">5.sınıf</a></li>
+                                        </ul>
+                                    }
+                                }
+                                @*@if (item.Id == 1)
+                                    {
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">3.sınıf</a></li>
+                                            <li><a href="#">4.sınıf</a></li>
+                                            <li><a href="#">5.sınıf</a></li>
+                                        </ul>
+                                    }
+                                    @if (item.Id == 2)
+                                    {
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">1.sınıf</a></li>
+                                            <li><a href="#">2.sınıf</a></li>
+                                            <li><a href="#">3.sınıf</a></li>
+
+                                        </ul>
+                                    }
+                                    @if (item.Id == 3)
+                                    {
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">6</a></li>
+                                            <li><a href="#">7</a></li>
+                                            <li><a href="#">8</a></li>
+                                        </ul>
+                                    }
+                                    @if (item.Id == 4)
+                                    {
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">6</a></li>
+                                            <li><a href="#">7</a></li>
+                                            <li><a href="#">8</a></li>
+                                        </ul>
+                                    }*@
+                            </li>
+                        }
+
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div>
+        </div><!-- /navbar-inner -->
+    </div><!-- /navbar -->
+</section>

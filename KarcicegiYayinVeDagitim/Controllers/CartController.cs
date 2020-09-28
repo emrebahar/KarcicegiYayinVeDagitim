@@ -63,7 +63,7 @@ namespace KarcicegiYayinVeDagitim.Controllers
             }
             if (ModelState.IsValid)
             {
-                saveOrder(cart, entity);
+                SaveOrder(cart, entity);
                 //veri tabanına kaydet
                 cart.Clear();
                 return View("Complated");
@@ -74,7 +74,7 @@ namespace KarcicegiYayinVeDagitim.Controllers
             }
         }
 
-        private void saveOrder(Cart cart, ShippingDetails entity)
+        private void SaveOrder(Cart cart, ShippingDetails entity)
         {
             var order = new Order();
             order.OrderNumber = "A" + (new Random()).Next(1111, 9999).ToString();

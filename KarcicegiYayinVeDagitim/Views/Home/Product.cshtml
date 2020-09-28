@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Product";
 }
-
+@Html.Action("CategoryListNavbar", "Category")
 <div id="mainBody">
     <div class="container">
         <div class="row">
@@ -11,7 +11,7 @@
             <div id="sidebar" class="span3">
                 @Html.Action("Summary", "Cart")
                 <ul id="sideManu" class="nav nav-tabs nav-stacked">
-                    @Html.Action("CategoryList", "Category");
+                    @Html.Action("CategoryList", "Category")
                 </ul>
                 <br>
                 @Html.Action("FeaturedProductList", "Home")
@@ -22,8 +22,8 @@
                     <li><a href="index.html">Home</a> <span class="divider">/</span></li>
                     <li class="active">Products</li>
                 </ul>
-                <h3> Tüm Ürünler </h3>
-                
+                <h3> Tüm Kitaplar </h3>
+
 
                 <br class="clr">
                 <div class="tab-content">
@@ -36,9 +36,9 @@
                                     <div class="thumbnail" style="width:270px;height:310px">
                                         <a href="/Home/ProductDetails/@item.Id"><img style="width:160px;height:200px;max-width:160px;max-height:250px" src="~/Content/image/@item.Image" alt="" /></a>
                                         <div class="caption" style="width:260px;height:140px">
-                                            <h5><a href="/Home/ProductDetails/@item.Id">@item.Name</a></h5>
+                                            <h5><a href="/Home/ProductDetails/@item.Id">@item.Name.ToUpper()</a></h5>
                                             <p>
-                                                @item.Description
+                                                @item.Description.ToUpper()
                                             </p>
 
                                             <h4 style="text-align:center"><a class="btn" href="/Home/ProductDetails/@item.Id">Görüntüle..<i class="icon-shopping-cart"></i></a> <a class="btn btn-primary">@item.Price (₺)</a></h4>

@@ -16,6 +16,7 @@ namespace KarcicegiYayinVeDagitim.Models
         public void AddProduct (Product product , int quantity)
         {
             var line = _cartlines.FirstOrDefault(i => i.Product.Id == product.Id);
+
             if (line == null)
             {
                 _cartlines.Add(new CartLine() { Product = product, Quantity = quantity });

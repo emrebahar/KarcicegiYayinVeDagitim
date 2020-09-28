@@ -74,7 +74,7 @@ namespace KarcicegiYayinVeDagitim.Controllers
         [Authorize(Roles = "admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,Stok,Image,Slider,IsHome,IsApproved,Isfeatured,CategoryId")] Product product)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,Class,Price,Stok,Image,Slider,IsHome,IsApproved,Isfeatured,CategoryId")] Product product)
         {
             if (ModelState.IsValid)
             {

@@ -3,98 +3,99 @@
     ViewBag.Title = "Checkout";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Html.Action("CategoryListNavbar", "Category")
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar ================================================== -->
+            <div id="sidebar" class="span3">
+                @Html.Action("Summary", "Cart")
+                <ul id="sideManu" class="nav nav-tabs nav-stacked">
 
-    <div id="mainBody">
-        <div class="container">
-            <div class="row">
-                <!-- Sidebar ================================================== -->
-                <div id="sidebar" class="span3">
-                    @Html.Action("Summary", "Cart")
-                    <ul id="sideManu" class="nav nav-tabs nav-stacked">
+                    @Html.Action("CategoryList", "Category");
 
-                        @Html.Action("CategoryList", "Category");
+                </ul>
+                <br />
 
-                    </ul>
-                    <br />
-                    @Html.Action("FeaturedProductList", "Home")
-                </div>
-                <!-- Sidebar end=============================================== -->
-                <div class="span9">
-                    <table class="table table-bordered">
-                        <tr><th> Lütfen Adres Bilgilerini Doldurunuz </th></tr>
-                        <tr>
-                            <td>
-
-                                @using (Html.BeginForm("Checkout", "Cart", FormMethod.Post, new { @class = "form-horizontal" }))
-                                {
-                                    @Html.AntiForgeryToken()
-
-
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputUsername">Kullanıcı Adı</label>
-                                        <div class="controls">
-                                            <div class="btn btn-success">
-                                                @User.Identity.Name
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputUsername">Adres Başlığı</label>
-                                        <div class="controls">
-                                            @Html.EditorFor(model => model.AdresBasligi, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.AdresBasligi, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputUsername">Adres</label>
-                                        <div class="controls">
-                                            @Html.EditorFor(model => model.Adres, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Adres, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputUsername">Şehir</label>
-                                        <div class="controls">
-                                            @Html.EditorFor(model => model.Sehir, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Sehir, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputUsername">Semt</label>
-                                        <div class="controls">
-                                            @Html.EditorFor(model => model.Semt, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Semt, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputUsername">Mahalle</label>
-                                        <div class="controls">
-                                            @Html.EditorFor(model => model.Mahalle, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Mahalle, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputUsername">Posta Kodu</label>
-                                        <div class="controls">
-                                            @Html.EditorFor(model => model.PosteKodu, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.PosteKodu, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <button type="submit" class="btn btn-success">Kaydet</button>
-                                        </div>
-                                    </div>
-
-                                }
-                            </td>
-                        </tr>
-                    </table>
-
-                </div>
             </div>
+            <!-- Sidebar end=============================================== -->
+            <div class="span9">
+                <table class="table table-bordered">
+                    <tr><th> Lütfen Adres Bilgilerini Doldurunuz </th></tr>
+                    <tr>
+                        <td>
+
+                            @using (Html.BeginForm("Checkout", "Cart", FormMethod.Post, new { @class = "form-horizontal" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUsername">Kullanıcı Adı</label>
+                                    <div class="controls">
+                                        <div class="btn btn-success">
+                                            @User.Identity.Name
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUsername">Adres Başlığı</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.AdresBasligi, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.AdresBasligi, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUsername">Adres</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.Adres, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Adres, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUsername">Şehir</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.Sehir, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Sehir, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUsername">Semt</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.Semt, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Semt, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUsername">Mahalle</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.Mahalle, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Mahalle, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUsername">Posta Kodu</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.PosteKodu, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.PosteKodu, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <button type="submit" class="btn btn-success">Kaydet</button>
+                                    </div>
+                                </div>
+
+                            }
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            @Html.Action("FeaturedProductList", "Home")
         </div>
     </div>
+</div>
 

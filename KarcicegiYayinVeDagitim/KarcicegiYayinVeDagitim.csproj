@@ -972,10 +972,19 @@
     <Content Include="Content\image\752x397-1.jpg" />
     <Content Include="Content\image\germany_nature_wide_1366x768.jpg" />
     <Content Include="Content\image\indirim.jpg" />
+    <Content Include="Content\image\Karciceği.jpg" />
+    <Content Include="Content\image\Karciceği_676x265.jpg" />
+    <Content Include="Content\image\Karciceği_676x280.jpg" />
+    <Content Include="Content\image\Karciceği_676x300.jpg" />
+    <Content Include="Content\image\Karçiçeği1_676x260.jpg" />
     <Content Include="Content\image\model1.png" />
     <Content Include="Content\image\model2.png" />
     <Content Include="Content\image\var1.png" />
     <Content Include="Content\image\var2.png" />
+    <Content Include="Content\logo\KARCICEGI JPG_100x80.jpg" />
+    <Content Include="Content\logo\KARCICEGI JPG_70x55.jpg" />
+    <Content Include="Content\logo\KARCICEGI JPG_70x70.jpg" />
+    <Content Include="Content\logo\KARCICEGI JPG_80x65.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Kaynak\bootstrap\css\bootstrap-responsive.min.css" />
@@ -1485,6 +1494,7 @@
     <Content Include="Views\Order\KargolananSiparisler.cshtml" />
     <Content Include="Views\Order\TamamlananSiparisler.cshtml" />
     <Content Include="Views\Order\PaketlenenSiparisler.cshtml" />
+    <Content Include="Views\Category\CategoryListNavbar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

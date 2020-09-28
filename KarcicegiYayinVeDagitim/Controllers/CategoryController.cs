@@ -31,6 +31,17 @@ namespace KarcicegiYayinVeDagitim.Controllers
             }).ToList();
             return PartialView(kategoriler);
         }
+        public PartialViewResult CategoryListNavbar()
+        {
+            var kategoriler = db.Categories.Select(x => new CategoryModel()
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Count = x.Products.Count()
+            }).ToList();
+            return PartialView(kategoriler);
+        }
+
         // GET: Category/Details/5
         [Authorize(Roles = "admin")]
         public ActionResult Details(int? id)
